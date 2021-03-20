@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% block title %}Utils{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .container::after,
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .title {
+    color: grey;
+  }
+
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .button:hover {
+    background-color: #555;
+  }
+
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+</style>
+{% endblock %}
+{% block content %}
+
+<br>
+
+<div class="about-section">
+  <h1>Utils</h1>
+  <p>For day-to-day use.</p>
+</div>
+
+gerar senhas
+dias da semana
+datas
+nomes
+formatar
+retirar formatação
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Date Time</h4>
+    <button type="button" onclick="loadDatetime()">Get Date Time</button>
+
+    <p id="demo"></p>
+
+
+    <button type="button" onclick="loadMonths()">Get Months</button>
+
+    <p id="months"></p>
+
+    <button type="button" onclick="loadMonthsFull()">Get Months Full</button>
+
+    <p id="months_full"></p>
+
+    <button type="button" onclick="load_get_day_name()">Get Days Names</button>
+
+    <p id="get_day_name"></p>
+    
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Password</h4>
+    <button type="button" onclick="load_password_generator()">password_generator</button>
+
+    <p id="pass"></p>
+    <button type="button" onclick="load_password_generator_Letter_numbers()">password_generator_letter_numbers</button>
+
+    <p id="passletter_numbers"></p>
+
+  </div>
+</div>
+
+
+
+
+<script>
+
+function load_password_generator_Letter_numbers() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("passletter_numbers").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/utils/password_generator_Letter_numbers", true);
+    xhttp.send();
+  }
+
+  function load_password_generator() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("pass").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/utils/password_generator", true);
+    xhttp.send();
+  }
+
+  
+  function load_get_day_name() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("get_day_name").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/utils/get_day_name", true);
+    xhttp.send();
+  }
+
+
+  function loadMonthsFull() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("months_full").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/utils/GetMonthsFull", true);
+    xhttp.send();
+  }
+
+  function loadMonths() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("months").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/utils/GetMonths", true);
+    xhttp.send();
+  }
+
+  function loadDatetime() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/utils/GetDatetime", true);
+    xhttp.send();
+  }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Images{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  * {
+    box-sizing: border-box;
+  }
+
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+</style>
+{% endblock %}
+{% block content %}
+
+<br>
+
+<a href="/GetScreenShot">get screen</a>
+<a href="/CountScreenShot">reload images</a>
+
+
+<h2>Images Side by Side</h2>
+<p>Show images caputered:</p>
+
+
+<div class="row">
+  {% if data != None %}
+  <div class="column">
+    {{ data}}
+  </div>
+<!-- 
+  {% for item in data %}
+
+  <div class="column">
+    {{ item}}
+  </div>
+
+  {% endfor %} -->
+  {% endif %}
+</div>
+
+
+<img src="" id="img" alt="Chart" height="100" width="100">
+
+<script>
+    data = "{{data}}"
+    data = data.replace("b&#39;", "") //to get rid of start curly brace code 
+    data = data.replace("&#39;", "")  //to get rid of end curly bracecode 
+
+    document.getElementById("img").src = "data:image/png;base64,"+data; // set src
+</script>
+
+
+{% endblock %}
