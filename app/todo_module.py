@@ -1,8 +1,8 @@
 # coding=utf-8
+from app.todo_dao import TodoDAO
 import json
 from bson import json_util
 from flask import Flask, jsonify, request, abort, Blueprint
-from app.task import TaskDAO
 import pymongo
 from flask.templating import render_template
 import json
@@ -15,13 +15,13 @@ try:
     client = pymongo.MongoClient(   
                                  mongo_config['mongo_connection'])
     database = client.todo_list
-    tasks_dao = TaskDAO(database)
+    tasks_dao = TodoDAO(database)
 except Exception as exc:
     print(exc)
 # log
 
 
-class Todo():
+class TodoModule():
 
     @todoModule.route('/tasks')
     def tasks():

@@ -4,8 +4,7 @@ import json
 from bson import json_util
 from bson.objectid import ObjectId
 
-
-class TaskDAO:
+class TodoDAO:
 
     def __init__(self, database):
         self.database = database
