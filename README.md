@@ -2,6 +2,14 @@
 ```bash
 The purpose of this project is create a simple app that uses most concepts used in a web development following MVC architecture, tests and single responsibility principle,
 
+project documentation
+
+also folowing git prectices like
+creating branches
+commit
+PR(pull requests)
+merge
+
 ```
 
 # Technologies
