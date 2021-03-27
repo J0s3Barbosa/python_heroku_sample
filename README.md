@@ -19,6 +19,11 @@ $ python todo.py
 
 ### install requirements
 
+```bash
+
+- upgrade pip
+py -m pip install --upgrade pip
+
 install venv
 py -m pip install virtualenv
 
@@ -31,5 +36,22 @@ activate virtual env
 install requirements
 pip install -r requirements.txt
 
+```
+### upgrade requirements
 
- 
+```bash
+
+pip install -r requirements.txt --upgrade
+
+
+pip list --outdated
+pip freeze > requirements.txt
+pip install -r requirements.txt --upgrade
+
+import pkg_resources
+from subprocess import call
+
+for dist in pkg_resources.working_set:
+    call("python -m pip install --upgrade " + dist.<projectname>, shell=True)
+
+```
