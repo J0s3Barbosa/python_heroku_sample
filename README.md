@@ -1,20 +1,48 @@
-# PythonTools
-
-# Technologies
-python
-mongoDb 
-
-## Environment
-
+# Python Web App
 ```bash
-pip install -r requirements.pip
+The purpose of this project is create a simple app that uses most concepts used in a web development following MVC architecture, tests and single responsibility principle,
+
 ```
 
-## How to run
+# Technologies
 
 ```bash
-$ python todo.py
-* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+- backend
+python
+Flask
+OOP
+PIP is a package manager
+Python Try Except
+JSON
+String Formatting
+Datetime
+Modules
+Classes and Objects
+If ... Else
+Lists
+Operators
+Booleans
+Casting
+Variables
+Built in Functions
+
+
+- DataBse
+mongoDb - most popular NoSQL database
+MongoDB driver "PyMongo"
+
+- Frontend
+
+Jinja2
+html
+bootstrap4
+JavaScript 
+AJAX 
+
+https://pypi.org/project/Jinja2/
+https://jinja.palletsprojects.com/en/2.11.x/intro/
+
 ```
 
 ### install requirements
@@ -37,6 +65,14 @@ install requirements
 pip install -r requirements.txt
 
 ```
+
+## How to run
+
+```bash
+$ python main.py
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+
 ### upgrade requirements
 
 ```bash
